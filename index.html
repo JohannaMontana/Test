@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Página no encontrada</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+        
+        :root {
+            --primary: #6c5ce7;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 8rem;
+            margin: 0;
+            line-height: 1;
+            color: var(--primary);
+            opacity: 0.8;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.3);
+        }
+        
+        .astronaut {
+            position: absolute;
+            width: 150px;
+            right: -50px;
+            top: -50px;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0.9;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 5rem; }
+            .astronaut { width: 100px; right: -20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/1969/1969072.png" alt="Astronauta" class="astronaut">
+        <h1>404</h1>
+        <h2>Hola mundo</h2>
+        <p>La página que estás buscando no está disponible temporalmente. Esta en desarrollo</p>
+        <a href="/" class="btn">Gracias</a>
+    </div>
+
+    <script>
+        // Efecto de partículas de fondo
+        document.addEventListener('DOMContentLoaded', function() {
+            const colors = ['#6c5ce7', '#00cec9', '#fd79a8', '#a29bfe'];
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 8 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                particle.style.top = Math.random() * 100 + 'vh';
+                particle.style.left = Math.random() * 100 + 'vw';
+                
+                // Animación
+                particle.style.animation = `float ${Math.random() * 6 + 3}s ease-in-out infinite`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                document.body.appendChild(particle);
+            }
+        });
+    </script>
+</body>
+</html>
